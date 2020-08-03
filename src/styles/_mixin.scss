@@ -15,7 +15,8 @@
   color: $color;
   background: $background;
   border-color: $border;
-  &:hover {
+  &:hover,
+  &.hover {
     color: $hover-color;
     background: $hover-background;
     border-color: $hover-border;
@@ -25,6 +26,15 @@
     color: $hover-color;
     background: $hover-background;
     border-color: $hover-border;
+    outline: none;
+
+  }
+  &:active,
+  &.active {
+    color: $hover-color;
+    background: $hover-background;
+    border-color: $hover-border;
+    outline: none;
   }
   &:disabled,
   &.disabled {

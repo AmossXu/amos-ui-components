@@ -38,7 +38,21 @@ function App() {
       >
         Hello
       </Button>
-      
+      <Button
+        onClick={() => {
+          alert('haha')
+        }}
+        btnType={ButtonType.Primary}
+        size={ButtonSize.Large}
+      >
+        Hello
+      </Button>
+      <button
+        style={{border:'none', outline:'none'}}
+      >
+
+        hello
+      </button>
     </div>
   );
 }
