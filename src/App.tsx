@@ -19,6 +19,7 @@ function App() {
         Hello
       </Button>
       <Button
+        disabled
         btnType={ButtonType.Link}
         href='www.baidu.com'
         size={ButtonSize.Large}
