@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+.home {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.home > div {
+  transform: scale(1.5);
+}

@@ -3,16 +3,18 @@ import logo from './logo.svg';
 
 import Button, { ButtonType, ButtonSize } from './conponents/Button/button';
 import Menu from './conponents/Menu/menu';
+import CircleLoading from './conponents/CircleLoading';
 import MenuItem from './conponents/Menu/menuItem';
-// import './App.css';
+import './App.css';
 
 function App() {
-  const a = '123'
-  if ( a == '123') {
-
-  }
   return (
     <div className="App">
+      <div className="home">
+        <CircleLoading
+        index={32}
+      />
+      </div>
       <Menu
         defaultIndex={0}
       >
