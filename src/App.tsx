@@ -2,7 +2,9 @@ import React from 'react';
 import logo from './logo.svg';
 
 import Button, { ButtonType, ButtonSize } from './conponents/Button/button';
-import './App.css';
+import Menu from './conponents/Menu/menu';
+import MenuItem from './conponents/Menu/menuItem';
+// import './App.css';
 
 function App() {
   const a = '123'
@@ -11,6 +13,19 @@ function App() {
   }
   return (
     <div className="App">
+      <Menu
+        defaultIndex={0}
+      >
+        <MenuItem>
+        32132321
+        </MenuItem>
+        <MenuItem>
+        dafafdsaf
+        </MenuItem>
+        <MenuItem>
+        vcxzvczxvxz
+        </MenuItem>
+      </Menu>
       <h1>HELLO</h1>
       <Button
         disabled
