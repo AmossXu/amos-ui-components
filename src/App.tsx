@@ -4,6 +4,7 @@ import logo from './logo.svg';
 import Button, { ButtonType, ButtonSize } from './conponents/Button/button';
 import Menu from './conponents/Menu/menu';
 import CircleLoading from './conponents/CircleLoading';
+import BubbleLoading from './conponents/BubbleLoading';
 import MenuItem from './conponents/Menu/menuItem';
 import './App.css';
 
@@ -12,20 +13,23 @@ function App() {
     <div className="App">
       <div className="home">
         <CircleLoading
-        index={32}
-      />
+          index={32}
+        />
+        <BubbleLoading
+          index={32}
+        />
       </div>
       <Menu
         defaultIndex={0}
       >
         <MenuItem>
-        32132321
+          32132321
         </MenuItem>
         <MenuItem>
-        dafafdsaf
+          dafafdsaf
         </MenuItem>
         <MenuItem>
-        vcxzvczxvxz
+          vcxzvczxvxz
         </MenuItem>
       </Menu>
       <h1>HELLO</h1>
@@ -65,7 +69,7 @@ function App() {
         Hello
       </Button>
       <button
-        style={{border:'none', outline:'none'}}
+        style={{ border: 'none', outline: 'none' }}
       >
 
         hello
