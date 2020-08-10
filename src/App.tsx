@@ -5,6 +5,7 @@ import Button, { ButtonType, ButtonSize } from './conponents/Button/button';
 import Menu from './conponents/Menu/menu';
 import CircleLoading from './conponents/CircleLoading';
 import BubbleLoading from './conponents/BubbleLoading';
+import TeacupLoading from './conponents/TeacupLoading';
 import MenuItem from './conponents/Menu/menuItem';
 import './App.css';
 
@@ -16,6 +17,9 @@ function App() {
           index={32}
         />
         <BubbleLoading
+          index={32}
+        />
+        <TeacupLoading
           index={32}
         />
       </div>
