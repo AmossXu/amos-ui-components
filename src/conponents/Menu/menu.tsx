@@ -1,33 +1,54 @@
-import React from 'react';
+import React, { createContext, useState } from 'react';
 import classNames from 'classnames';
 
 type MenuMode = 'horizontal' | 'vertical'
-
+type SelectCallback = (selectedIndex: number) => void;
 export interface MenuProps {
   defaultIndex?: number;
   className?: string;
   mode?: MenuMode;
   style?: React.CSSProperties;
-  onSelect?: (selectedIndex: number) => void;
+  onSelect?: SelectCallback;
+}
+interface IMenuContext {
+  index: number;
+  onSelect?: SelectCallback;
 }
 
+export const MenuContext = createContext<IMenuContext>({ index: 0 })
 const Menu: React.FC<MenuProps> = (props) => {
   const {
     defaultIndex,
     className,
     mode,
     children,
-    style
+    style,
+    onSelect
   } = props
-  const classes = classNames('menu', className, {
+  const [currentActive, setActive] = useState(defaultIndex)
+  const classes = classNames('amos-menu', className, {
     'menu-vertical': mode === 'vertical'
   })
-  return(
+  const handleClick = (index: number) => {
+    setActive(index)
+    if (onSelect) {
+      onSelect(index)
+    }
+  }
+  const passContext: IMenuContext = {
+    index: currentActive ? currentActive : 0,
+    onSelect: handleClick
+  }
+  return (
     <ul
       className={classes}
       style={style}
     >
-      {children}
+      <MenuContext.Provider
+        value={passContext}
+      >
+        {children}
+      </MenuContext.Provider>
     </ul>
   )
 }

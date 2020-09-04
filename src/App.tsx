@@ -8,22 +8,31 @@ import MenuItem from './conponents/Menu/menuItem';
 
 function App() {
   const a = '123'
-  if ( a == '123') {
+  if (a == '123') {
 
   }
   return (
     <div className="App">
       <Menu
-        defaultIndex={0}
+        defaultIndex={1}
+        onSelect={(index) => alert(index)}
+        mode='vertical'
       >
-        <MenuItem>
-        32132321
+        <MenuItem
+          index={1}
+        >
+          32132321
         </MenuItem>
-        <MenuItem>
-        dafafdsaf
+        <MenuItem
+          index={2}
+          disabled
+        >
+          dafafdsaf
         </MenuItem>
-        <MenuItem>
-        vcxzvczxvxz
+        <MenuItem
+          index={3}
+        >
+          vcxzvczxvxz
         </MenuItem>
       </Menu>
       <h1>HELLO</h1>
@@ -63,7 +72,7 @@ function App() {
         Hello
       </Button>
       <button
-        style={{border:'none', outline:'none'}}
+        style={{ border: 'none', outline: 'none' }}
       >
 
         hello
