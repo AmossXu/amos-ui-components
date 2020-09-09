@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="App">
       <Menu
-        defaultIndex={1}
+        defaultIndex={0}
         onSelect={(index) => alert(index)}
         mode='vertical'
       >

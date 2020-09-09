@@ -1,9 +1,8 @@
 import React from 'react';
-import { render, RenderResult } from '@testing-library/react';
+import { render, RenderResult, fireEvent, cleanup } from '@testing-library/react';
 
 import Menu, { MenuProps } from './menu';
 import MenuItem from './menuItem';
-import { wrap } from 'module';
 
 const testProps: MenuProps = {
   defaultIndex: 0,
@@ -12,7 +11,7 @@ const testProps: MenuProps = {
 }
 
 const testVerProps: MenuProps = {
-  defaultIndex: 0,
+  defaultIndex: 1,
   mode: 'vertical'
 }
 const generateMenu = (props: MenuProps) => {
@@ -21,20 +20,17 @@ const generateMenu = (props: MenuProps) => {
         {...props}
       >
         <MenuItem
-          index={1}
         >
-          32132321
+          active
         </MenuItem>
         <MenuItem
-          index={2}
           disabled
         >
-          dafafdsaf
+          disabled
         </MenuItem>
         <MenuItem
-          index={3}
         >
-          vcxzvczxvxz
+          xyz
         </MenuItem>
       </Menu>
   )
@@ -45,16 +41,31 @@ describe('test Menu and MenuItem component', () => {
   beforeEach(() => {
     wrapper = render(generateMenu(testProps))
     menuElement = wrapper.getByTestId('test-menu')
-    // activeElement = wrapper.getByText('active')
-    // disabledElement = wrapper.getByText('disabled')
+    activeElement = wrapper.getByText('active')
+    disabledElement = wrapper.getByText('disabled')
   })
   it('should render correct Menu and MenuItem based on default props', () => {
     expect(menuElement).toBeInTheDocument()
+    expect(menuElement).toHaveClass('amos-menu test')
+    expect(menuElement.getElementsByTagName('li').length).toEqual(3)
+    expect(activeElement).toHaveClass('menu-item is-active')
+    expect(disabledElement).toHaveClass('menu-item is-disabled')
   })
   it('click items should change active and call the right callback', () => {
-
+    const thirdItem = wrapper.getByText('xyz')
+    fireEvent.click(thirdItem)
+    expect(thirdItem).toHaveClass('is-active')
+    expect(activeElement).not.toHaveClass('is-active')
+    expect(testProps.onSelect).toHaveBeenCalledWith(2)
+    fireEvent.click(disabledElement)
+    expect(disabledElement).not.toHaveClass('is-active')
+    expect(testProps.onSelect).not.toHaveBeenCalledWith(1)
   })
   it('should render vertical mode when mode is set to vertical', () => {
-
+    cleanup()
+    const wrapper = render(generateMenu(testVerProps))
+    menuElement = wrapper.getByTestId('test-menu')
+    expect(menuElement).toBeInTheDocument()
+    expect(menuElement).toHaveClass('menu-vertical')
   })
 })
