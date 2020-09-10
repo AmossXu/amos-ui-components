@@ -4,6 +4,7 @@ import logo from './logo.svg';
 import Button, { ButtonType, ButtonSize } from './conponents/Button/button';
 import Menu from './conponents/Menu/menu';
 import MenuItem from './conponents/Menu/menuItem';
+import SubMenu from './conponents/Menu/subMenu';
 // import './App.css';
 
 function App() {
@@ -15,22 +16,30 @@ function App() {
     <div className="App">
       <Menu
         defaultIndex={0}
-        onSelect={(index) => alert(index)}
         mode='vertical'
+      // onSelect={(index) => alert(index)}
       >
         <MenuItem
-          index={1}
         >
           32132321
         </MenuItem>
         <MenuItem
-          index={2}
           disabled
         >
           dafafdsaf
         </MenuItem>
+
+        <SubMenu
+          title='fadfda'
+        >
+          <MenuItem>
+            dafafdsaf
+          </MenuItem>
+          <MenuItem>
+            vcxzvczxvxz
+          </MenuItem>
+        </SubMenu>
         <MenuItem
-          index={3}
         >
           vcxzvczxvxz
         </MenuItem>
