@@ -5,13 +5,13 @@ import Menu, { MenuProps } from './menu';
 import MenuItem from './menuItem';
 import SubMenu from './subMenu';
 const testProps: MenuProps = {
-  defaultIndex: 0,
+  defaultIndex: '0',
   onSelect: jest.fn(),
   className: 'test'
 }
 
 const testVerProps: MenuProps = {
-  defaultIndex: 1,
+  defaultIndex: '1',
   mode: 'vertical'
 }
 const generateMenu = (props: MenuProps) => {
@@ -78,10 +78,10 @@ describe('test Menu and MenuItem component', () => {
     fireEvent.click(thirdItem)
     expect(thirdItem).toHaveClass('is-active')
     expect(activeElement).not.toHaveClass('is-active')
-    expect(testProps.onSelect).toHaveBeenCalledWith(2)
+    expect(testProps.onSelect).toHaveBeenCalledWith('2')
     fireEvent.click(disabledElement)
     expect(disabledElement).not.toHaveClass('is-active')
-    expect(testProps.onSelect).not.toHaveBeenCalledWith(1)
+    expect(testProps.onSelect).not.toHaveBeenCalledWith('1')
   })
   it('should render vertical mode when mode is set to vertical', () => {
     cleanup()
@@ -90,7 +90,8 @@ describe('test Menu and MenuItem component', () => {
     expect(menuElement).toBeInTheDocument()
     expect(menuElement).toHaveClass('menu-vertical')
   })
-  it('should show dropdown items whien hover on subMenu', () => {
+  it('should show dropdown items when hover on subMenu', () => {
+    
     // expect(wrapper.queryByText('drop1').not.tobeVisible())
   })
 })

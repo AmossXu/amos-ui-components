@@ -15,8 +15,9 @@ function App() {
   return (
     <div className="App">
       <Menu
-        defaultIndex={0}
+        defaultIndex={'0'}
         mode='vertical'
+        defaultOpenSubMenus={['2']}
       // onSelect={(index) => alert(index)}
       >
         <MenuItem
