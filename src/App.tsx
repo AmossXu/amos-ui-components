@@ -1,11 +1,15 @@
 import React from 'react';
 import logo from './logo.svg';
-
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons'
 import Button, { ButtonType, ButtonSize } from './conponents/Button/button';
+import { FontAwesomeIcon, FontAwesomeIconProps } from '@fortawesome/react-fontawesome'
 import Menu from './conponents/Menu/menu';
 import MenuItem from './conponents/Menu/menuItem';
 import SubMenu from './conponents/Menu/subMenu';
+import Icon from './conponents/Icon/icon';
 // import './App.css';
+library.add(fas)
 
 function App() {
   const a = '123'
@@ -14,6 +18,8 @@ function App() {
   }
   return (
     <div className="App">
+      {/* <Icon icon="faCoffee" theme='primary' size='10x' /> */}
+      <FontAwesomeIcon  icon="faCoffee"/>
       <Menu
         defaultIndex={'0'}
         mode='vertical'
