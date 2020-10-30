@@ -29,28 +29,31 @@
       display: flex;
       align-items: center;
     }
-    .arrow-icon {
+    .angle-icon {
       transition: transform .25s ease-in-out;
       margin-left: 3px;
     }
     &:hover {
-      .arrow-icon {
+      .angle-icon {
         transform: rotate(180deg);
       }
     }
   }
   .is-vertical {
-    .arrow-icon {
+    .angle-icon {
       transform: rotate(0deg) !important;
     }
   }
   .is-vertical.is-opened {
-    .arrow-icon {
+    .angle-icon {
       transform: rotate(180deg) !important;
     }
   }
   .amos-submenu {
-    display: none;
+    // 开始透明度为0
+    opacity: 0;
+    transition: opacity .5s ease-in;
+    // display: none;
     list-style:none;
     padding-left: 0;
     white-space: nowrap;
@@ -67,6 +70,7 @@
   }
   .amos-submenu.menu-opened {
     display: block;
+    opacity: 1;
   }
 }
 .menu-horizontal {

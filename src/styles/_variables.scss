@@ -30,6 +30,7 @@ $danger:        $red !default;
 $light:         $gray-100 !default;
 $dark:          $gray-800 !default;
 
+// 用于主题颜色可循环操作的map
 $theme-colors: 
 (
   "primary":    $primary,
