@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas, faCheckSquare } from '@fortawesome/free-solid-svg-icons'
@@ -8,10 +8,12 @@ import Menu from './conponents/Menu/menu';
 import MenuItem from './conponents/Menu/menuItem';
 import SubMenu from './conponents/Menu/subMenu';
 import Icon from './conponents/Icon/icon';
+import Transition from './conponents/Transition/transition';
 // import './App.css';
 library.add(fas, faCheckSquare)
 
 function App() {
+  const [show, setShow] = useState(false)
   const a = '123'
   if (a == '123') {
 
@@ -19,62 +21,68 @@ function App() {
   return (
     <div className="App">
       {/* <Icon icon="faCoffee" theme='primary' size='10x' /> */}
-      <Icon icon="spinner" theme='danger' />
-      <Menu
-        defaultIndex={'0'}
-        // mode='vertical'
-        defaultOpenSubMenus={['2']}
-      // onSelect={(index) => alert(index)}
+      <Button size='lg' onClick={() => { setShow(!show) }}>Toggle</Button>
+      <Transition
+        in={show}
+        timeout={300}
+        animation='zoom-in-left'
       >
-        <MenuItem
+        <Menu
+          defaultIndex={'0'}
+          // mode='vertical'
+          defaultOpenSubMenus={['2']}
+        // onSelect={(index) => alert(index)}
         >
-          32132321
+          <MenuItem
+          >
+            32132321
         </MenuItem>
-        <MenuItem
-          disabled
-        >
-          dafafdsaf
+          <MenuItem
+            disabled
+          >
+            dafafdsaf
         </MenuItem>
 
-        <SubMenu
-          title='fadfda'
-        >
-          <MenuItem>
-            dafafdsaf
+          <SubMenu
+            title='fadfda'
+          >
+            <MenuItem>
+              dafafdsaf
           </MenuItem>
-          <MenuItem>
+            <MenuItem>
+              vcxzvczxvxz
+          </MenuItem>
+          </SubMenu>
+          <MenuItem
+          >
             vcxzvczxvxz
-          </MenuItem>
-        </SubMenu>
-        <MenuItem
-        >
-          vcxzvczxvxz
         </MenuItem>
-      </Menu>
+        </Menu>
+      </Transition>
       <h1>HELLO</h1>
       <Button
         disabled
-        size={ButtonSize.Large}
+        size='lg'
       >
         Hello
       </Button>
       <Button
         disabled
-        btnType={ButtonType.Link}
+        btnType='danger'
         href='www.baidu.com'
-        size={ButtonSize.Large}
+        size='lg'
       >
         Hello
       </Button>
       <Button
-        btnType={ButtonType.Danger}
+        btnType='danger'
         href='www.baidu.com'
-        size={ButtonSize.Small}
+        size='lg'
       >
         Hello
       </Button>
       <Button
-        size={ButtonSize.Large}
+        size='lg'
       >
         Hello
       </Button>
@@ -82,8 +90,8 @@ function App() {
         onClick={() => {
           alert('haha')
         }}
-        btnType={ButtonType.Primary}
-        size={ButtonSize.Large}
+        btnType='primary'
+        size='lg'
       >
         Hello
       </Button>
@@ -93,7 +101,7 @@ function App() {
 
         hello
       </button>
-    </div>
+    </div >
   );
 }
 
