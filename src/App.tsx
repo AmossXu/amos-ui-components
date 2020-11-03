@@ -22,44 +22,47 @@ function App() {
     <div className="App">
       {/* <Icon icon="faCoffee" theme='primary' size='10x' /> */}
       <Button size='lg' onClick={() => { setShow(!show) }}>Toggle</Button>
+
+      <Menu
+        defaultIndex={'0'}
+        // mode='vertical'
+        defaultOpenSubMenus={['2']}
+      // onSelect={(index) => alert(index)}
+      >
+        <MenuItem
+        >
+          32132321
+        </MenuItem>
+        <MenuItem
+          disabled
+        >
+          dafafdsaf
+        </MenuItem>
+
+        <SubMenu
+          title='fadfda'
+        >
+          <MenuItem>
+            dafafdsaf
+          </MenuItem>
+          <MenuItem>
+            vcxzvczxvxz
+          </MenuItem>
+        </SubMenu>
+        <MenuItem
+        >
+          vcxzvczxvxz
+        </MenuItem>
+      </Menu>
       <Transition
         in={show}
         timeout={300}
         animation='zoom-in-left'
+        wrapper
       >
-        <Menu
-          defaultIndex={'0'}
-          // mode='vertical'
-          defaultOpenSubMenus={['2']}
-        // onSelect={(index) => alert(index)}
-        >
-          <MenuItem
-          >
-            32132321
-        </MenuItem>
-          <MenuItem
-            disabled
-          >
-            dafafdsaf
-        </MenuItem>
-
-          <SubMenu
-            title='fadfda'
-          >
-            <MenuItem>
-              dafafdsaf
-          </MenuItem>
-            <MenuItem>
-              vcxzvczxvxz
-          </MenuItem>
-          </SubMenu>
-          <MenuItem
-          >
-            vcxzvczxvxz
-        </MenuItem>
-        </Menu>
+        <h1>HELLO</h1>
       </Transition>
-      <h1>HELLO</h1>
+
       <Button
         disabled
         size='lg'
