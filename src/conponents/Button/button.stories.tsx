@@ -1,21 +1,21 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
-import { ButtonProps, BaseButtonProps } from './button';
+import { ButtonProps } from './button';
 import Button from './button';
 
 export default {
   title: '示例/Button',
   component: Button,
-  argTypes: {
-    
-  },
+  // argTypes: {
+
+  // },
 } as Meta;
 
-const Template: Story<BaseButtonProps> = (args) => <Button btnType='primary' {...args}>确定</Button>;
+const Template: Story<ButtonProps> = (args) => <Button {...args}>确定</Button>;
 
 export const Default = Template.bind({});
-Default.args = {
-};
+Default.args = {};
+
 export const Large = Template.bind({});
 Large.args = {
   size: 'lg'
