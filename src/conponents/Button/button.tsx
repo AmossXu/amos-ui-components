@@ -4,12 +4,30 @@ import classnames from 'classnames';
 export type ButtonSize = 'lg' | 'sm'
 export type ButtonType = 'primary' | 'default' | 'danger' | 'link'
 
-interface BaseButtonProps {
+export interface BaseButtonProps {
+  /**
+   * Is this the principal call to action on the page?
+   */
   className?: string;
+  /**
+   * Is this the principal call to action on the page?
+   */
   disabled?: boolean;
+  /**
+   * Is this the principal call to action on the page?
+   */
   size?: ButtonSize;
+  /**
+   * Is this the principal call to action on the page?
+   */
   btnType?: ButtonType;
+  /**
+   * Is this the principal call to action on the page?
+   */
   children: React.ReactNode;
+  /**
+   * Is this the principal call to action on the page?
+   */
   href?: string;
 }
 
@@ -59,7 +77,7 @@ const Button: React.FC<ButtonProps> = (props) => {
 Button.defaultProps = {
   disabled: false,
   btnType: 'default',
-  size: 'lg'
+  size: 'sm'
 }
 
 export default Button;
