@@ -6,44 +6,45 @@ import Button from './button';
 export default {
   title: '示例/Button',
   component: Button,
-  // argTypes: {
-
-  // },
 } as Meta;
 
-const Template: Story<ButtonProps> = (args) => <Button {...args}>确定</Button>;
+const BasicButton: Story<ButtonProps> = (args) => <Button {...args}>确定</Button>;
+const SizeButton: Story<ButtonProps> = (args) => <div>
+  <Button {...args} size='lg'>确定</Button>
+  <Button {...args} size='sm'>确定</Button>
+</div >;
 
-export const Default = Template.bind({});
+export const Default = BasicButton.bind({});
 Default.args = {};
 
-export const Large = Template.bind({});
-Large.args = {
-  size: 'lg'
-};
+export const Large = SizeButton.bind({});
+Large.args = {};
 
-export const Primary = Template.bind({});
+export const Primary = BasicButton.bind({});
 Primary.args = {
   btnType: 'primary',
 };
 
-export const Danger = Template.bind({});
+export const Danger = BasicButton.bind({});
 Danger.args = {
   btnType: 'danger',
 };
 
-export const Disabled = Template.bind({});
+export const Disabled = BasicButton.bind({});
 Disabled.args = {
   btnType: 'danger',
   disabled: true
 };
 
-export const Link = Template.bind({});
+export const Link = BasicButton.bind({});
 Link.args = {
   btnType: 'link',
+  href: "www.baidu.com"
 };
 
-export const LinkDisabled = Template.bind({});
+export const LinkDisabled = BasicButton.bind({});
 LinkDisabled.args = {
   btnType: 'link',
-  disabled: true
+  disabled: true,
+  href: "www.baidu.com"
 };
