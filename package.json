@@ -1,6 +1,6 @@
 {
-  "name": "wm-components",
-  "version": "0.1.1",
+  "name": "@weimeng_hosp/ui",
+  "version": "0.1.0",
   "private": false,
   "description": "React components library",
   "author": {
