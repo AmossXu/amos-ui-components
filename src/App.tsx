@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas, faCheckSquare } from '@fortawesome/free-solid-svg-icons'
 import Button, { ButtonType, ButtonSize } from './conponents/Button/button';
