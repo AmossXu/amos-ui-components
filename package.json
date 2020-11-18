@@ -88,6 +88,7 @@
     "react-is": "^17.0.1",
     "react-scripts": "3.4.1",
     "rimraf": "^3.0.2",
-    "typescript": "~3.7.2"
+    "typescript": "~3.7.2",
+    "antd": "3.26.18"
   }
 }
