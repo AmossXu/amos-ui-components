@@ -11,10 +11,12 @@
 @import "animation";
 
 // button
-@import "../conponents/Button/style";
+@import "../components/Button/style";
 
 // menu
-@import "../conponents/Menu/style";
+@import "../components/Menu/style";
 
 // icon
-@import "../conponents/Icon/style";
+@import "../components/Icon/style";
+// icon
+@import "../../node_modules/antd/dist/antd.css";

@@ -6,22 +6,23 @@ import * as React from 'react';
 import { Tooltip } from 'antd';
 import { TooltipPlacement } from 'antd/lib/tooltip';
 
-class AbbrProps {
+export interface AbbrProps {
   /** 额外的 className */
   className?: string;
   /** 原始文本 */
-  text: number | string = '';
+  text: string;
   /** 限制长度 */
-  length?: number = 20;
+  length?: number;
   /** 是否斜体显示，用于 Tab 处于 preview 模式等 */
-  italic?: boolean = false;
+  italic?: boolean;
   /** 展现位置，默认为 topLeft */
-  placement?: TooltipPlacement = 'top';
+  placement?: TooltipPlacement;
 }
 
-class Abbr extends React.Component<AbbrProps, any> {
+class Abbr extends React.Component<AbbrProps, {}> {
+  static defaultProps: AbbrProps
 
-  getShortName(text, length) {
+  getShortName(text: string, length: number) {
     const result = [];
     let currLength = 0;
 
@@ -46,14 +47,14 @@ class Abbr extends React.Component<AbbrProps, any> {
   }
 
   render() {
-    const { className, text, length, italic, placement = 'top', ...restProps } = this.props;
+    const { text, length, italic, placement = 'top' } = this.props;
     const textStr = text + '';
 
     if (!text) {
       return null;
     }
 
-    const shortName = this.getShortName(textStr, length);
+    const shortName = this.getShortName(textStr, length as number);
     const shortNameEl = italic ? <i>{shortName}</i> : <span>{shortName}</span>;
 
     const nameEl =
@@ -75,4 +76,10 @@ class Abbr extends React.Component<AbbrProps, any> {
   }
 }
 
+Abbr.defaultProps = {
+  text: '',
+  length: 20,
+  italic: false,
+  // placement: 'top'
+}
 export default Abbr;
